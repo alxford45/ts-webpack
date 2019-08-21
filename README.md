@@ -2,6 +2,8 @@
 
 Webpack configuration for typescript mono-repo. Includes boilerplate for simple web view and express server. Typescript is compiled to javascript using Ts-Loader and is transpiled to a specified target version using Babel. Additional polyfills can be added by extending the babel configuration.
 
+Todo: implement build and deployment configuration/scripts.
+
 # npm scripts
 
 ## npm run web
