@@ -20,7 +20,7 @@ Runs web and server concurrently.
 
 # usage
 
-    git clone https://github.com/alxford45/ts-web.git
+    git clone https://github.com/alxford45/ts-weback.git
     cd ts-weback
     npm i
     npm start
