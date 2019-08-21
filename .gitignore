@@ -3,3 +3,7 @@
 
 #tsc compile outdir
 /dist
+
+#typedoc docs
+/docs
+
