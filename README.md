@@ -1,19 +1,27 @@
-# ts-web
+# ts-webpack
 
-Typescript environment for local web development. Uses webpack for dev server.
+Webpack configuration for typescript mono-repo. Includes boilerplate for simple web view and express server. Typescript is compiled to javascript using Ts-Loader and is transpiled to a specified target version using Babel. Additional polyfills can be added by extending the babel configuration.
 
 # npm scripts
 
-## npm run dev
+## npm run web
 
-Starts webpack-dev-server at port 8080 serving content from src/\*\*
+Starts webpack-dev-server at port 8080 serving content from web/\*\*
+
+## npm run server
+
+Compiles the content from /server to /dist and watches for changes. Starts the express server at port 3000 serving content from dist/
+
+## npm start
+
+Runs web and server concurrently.
 
 # usage
 
     git clone https://github.com/alxford45/ts-web.git
-    cd ts-web
+    cd ts-weback
     npm i
-    npm run dev
+    npm start
 
 # configuration
 
@@ -21,20 +29,11 @@ Customize the webpack configuration by editing constants in config/config.ts.
 
 Add additional plugins or loaders by defining new constants in config/config.ts and importing them into config/webpack.config.ts.
 
-Add or remove required webpack parameters by editing config/config.types.ts.
-
 # dependencies
 
 <ul>
-  <li>typescript</li>
-  <li>ts-node</li>
-  <li>ts-loader</li>
-  <li>webpack</li>
-  <li>webpack-cli</li>
-  <li>webpack-dev-server</li>
-  <li>html-webpack-plugin</li>
-  <li>@types/node</li>
-  <li>@types/webpack</li>
-  <li>@types/webpack-dev-server</li>
-  <li>@types/html-webpack-plugin</li>
+  <li>express</li>
+  <li>axios</li>
+  <li>core-js</li>
+  <li>fast-async</li>
 </ul>
