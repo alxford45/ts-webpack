@@ -3,30 +3,46 @@
   "version": "1.0.0",
   "description": "flexible starting typescript env",
   "scripts": {
-    "dev": "webpack-dev-server --config config/webpack.config.ts"
+    "start": "npm run server & npm run web",
+    "server": "webpack -w --config config/webpack.config.ts --config-name server",
+    "web": "webpack-dev-server --config config/webpack.config.ts --config-name web"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alxford45/ts-env.git"
+    "url": "git+https://github.com/alxford45/ts-webpack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alxford45/ts-env/issues"
+    "url": "https://github.com/alxford45/ts-webpack/issues"
   },
-  "homepage": "https://github.com/alxford45/ts-env#readme",
+  "homepage": "https://github.com/alxford45/ts-webpack#readme",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@types/express": "^4.17.0",
     "@types/html-webpack-plugin": "^3.2.0",
     "@types/node": "^12.6.2",
     "@types/webpack": "^4.4.34",
     "@types/webpack-dev-server": "^3.1.7",
+    "@types/webpack-node-externals": "^1.6.3",
+    "babel-loader": "^8.0.6",
+    "fast-async": "^7.0.6",
     "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.19.1",
+    "nodemon-webpack-plugin": "^4.0.8",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "core-js": "^3.2.1",
+    "express": "^4.17.1"
   }
 }
