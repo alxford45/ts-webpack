@@ -1,24 +1,47 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { DevServer, RuleSetRule, Mode } from "./config.types";
+import { Configuration as DevServer } from "webpack-dev-server";
+import { RuleSetRule, RuleSetUse } from "webpack";
 
-export const MODE: Mode = "development";
-export const NAME: string = "web";
-export const ENTRY: string = "./src/index.ts";
+import { PATH as path, dirname } from "../path";
+import nodemon from "config/nodemon";
 
+export const types = path.resolve(dirname, "types");
+export const config = path.resolve(dirname, "config");
+
+export const web = {
+  name: "web",
+  entry: "./web/index.ts"
+};
+export const server = {
+  name: "server",
+  entry: "./server/index.ts",
+  context: path.resolve(dirname)
+};
 export const devServer: DevServer = {
   host: "localhost",
   port: 8080,
   hot: false,
-  filename: "main.js"
-};
-export const TSLoaderRules: RuleSetRule = {
-  test: /\.ts?$/,
-  use: "ts-loader",
-  exclude: /node_modules/,
-  resolve: {
-    extensions: [".ts", ".js"]
+  proxy: {
+    "**": "http://localhost:3000"
   }
 };
+const BabelLoader: RuleSetUse = {
+  loader: "babel-loader",
+  options: {
+    sourceType: "unambiguous"
+  }
+};
+export const TSLoaderRules: RuleSetRule = {
+  test: /\.ts(x?)|.js(x?)$/,
+  exclude: /node_modules/,
+
+  loaders: [BabelLoader, "ts-loader"]
+};
+
+const NodemonPlugin = require("nodemon-webpack-plugin") as nodemon.WebpackPlugin;
+export const nodemonPlugin = new NodemonPlugin({
+  script: "dist/main.js"
+});
 export const htmlWebpackPlugin: HtmlWebpackPlugin = new HtmlWebpackPlugin({
-  template: "./src/index.html"
+  template: "./web/index.html"
 });
