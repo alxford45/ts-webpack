@@ -22,7 +22,7 @@ const configuration: Configuration[] = [
       rules: [TSLoaderRules]
     },
     resolve: {
-      extensions: [".ts, .js"],
+      extensions: [".ts", ".js"],
       alias: {
         types: types,
         config: config
